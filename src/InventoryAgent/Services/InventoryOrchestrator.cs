@@ -52,9 +52,22 @@ public class InventoryOrchestrator
             }
         });
 
-        var results = _options.EnableParallelCollection
-            ? await Task.WhenAll(collectionTasks)
-            : await Task.WhenAll(collectionTasks.Select(async t => await t));
+        // Execute tasks based on parallel collection setting
+        IEnumerable<(object? Data, IReadOnlyList<CollectionWarning> Warnings)> results;
+        if (_options.EnableParallelCollection)
+        {
+            results = await Task.WhenAll(collectionTasks);
+        }
+        else
+        {
+            // Sequential execution
+            var resultsList = new List<(object? Data, IReadOnlyList<CollectionWarning> Warnings)>();
+            foreach (var task in collectionTasks)
+            {
+                resultsList.Add(await task);
+            }
+            results = resultsList;
+        }
 
         // Aggregate results
         HardwareInfo? hardware = null;
