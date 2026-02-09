@@ -1,0 +1,88 @@
+{
+  "Timestamp": "2026-02-09T10:30:00.000Z",
+  "Hostname": "ubuntu-server",
+  "Hardware": {
+    "Cpu": {
+      "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+      "Vendor": "GenuineIntel",
+      "PhysicalCores": 6,
+      "LogicalProcessors": 12,
+      "Architecture": "X64",
+      "FrequencyMhz": 2600.0
+    },
+    "Memory": {
+      "TotalBytes": 17179869184,
+      "Modules": null
+    },
+    "Disks": [],
+    "Volumes": [
+      {
+        "Name": "/",
+        "FileSystem": "ext4",
+        "TotalBytes": 107374182400,
+        "FreeBytes": 53687091200,
+        "UsedBytes": 53687091200
+      }
+    ],
+    "Gpus": [],
+    "NetworkAdapters": [
+      {
+        "Name": "eth0",
+        "MacAddress": "00:15:5D:01:02:03",
+        "IPv4Addresses": ["192.168.1.100"],
+        "IPv6Addresses": ["fe80::215:5dff:fe01:203"],
+        "LinkSpeedBps": 1000000000
+      }
+    ],
+    "Motherboard": null,
+    "Bios": null,
+    "Monitors": []
+  },
+  "Software": {
+    "Os": {
+      "Name": "Ubuntu 22.04.3 LTS",
+      "Version": "22.04",
+      "Build": null,
+      "KernelVersion": "5.15.0-91-generic",
+      "Architecture": "x64",
+      "BootTime": "2026-02-08T14:30:00.000Z",
+      "Uptime": "20:00:00"
+    },
+    "InstalledApps": [],
+    "RunningProcesses": [
+      {
+        "ProcessId": 1,
+        "Name": "systemd",
+        "Path": null,
+        "UserName": "runner",
+        "MemoryBytes": 10485760
+      }
+    ]
+  },
+  "Warnings": [
+    {
+      "CollectorName": "LinuxHardwareCollector",
+      "Field": "Disks",
+      "Message": "Disk details require sysfs parsing which is best-effort on Linux",
+      "ExceptionSummary": null
+    },
+    {
+      "CollectorName": "LinuxHardwareCollector",
+      "Field": "Memory.Modules",
+      "Message": "Module breakdown not available on Linux without root access",
+      "ExceptionSummary": null
+    },
+    {
+      "CollectorName": "LinuxHardwareCollector",
+      "Field": "GPU",
+      "Message": "GPU detection not available via managed APIs on Linux",
+      "ExceptionSummary": null
+    },
+    {
+      "CollectorName": "LinuxSoftwareCollector",
+      "Field": "InstalledApps",
+      "Message": "Package enumeration requires distro-specific package manager access",
+      "ExceptionSummary": null
+    }
+  ]
+}
